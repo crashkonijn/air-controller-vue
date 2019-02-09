@@ -1,18 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <air-controller>
+      <air-page name="home">
+        <air-button name="top-left" anchor="top-left"></air-button>
+        <air-button name="bottom-right" anchor="center-right"></air-button>
+        <air-button name="center-center" anchor="center-center"></air-button>
+      </air-page>
+      <air-page name="loading"></air-page>
+    </air-controller>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import AirController from "./components/AirController";
+import AirPage from "./components/AirPage";
+import AirButton from "./components/AirButton";
 export default {
   name: 'app',
-  components: {
-    HelloWorld
-  }
+  components: {AirButton, AirPage, AirController},
 }
 </script>
 
@@ -25,4 +31,12 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+  .air-page--home {
+    background-color: green;
+  }
+
+  .air-page--loading {
+    background-color: black;
+  }
 </style>

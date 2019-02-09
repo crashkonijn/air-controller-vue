@@ -1,14 +1,15 @@
-export const anchor = {
+export const base = {
     props: {
-        anchor: {
+        name: {
             required: true,
-            type: String,
-            default: 'center-center'
+            type: String
         },
     },
     computed: {
-        anchorClasses() {
-            return 'anchor--' + this.anchor;
+        baseClasses() {
+            let component = this.kebab_case(this.$options.name);
+
+            return [component, component + '--' + this.name].join(' ');
         }
     }
 };
