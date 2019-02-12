@@ -1,0 +1,30 @@
+.air-page {
+  &--buttons {
+    .air-button {
+      float: left;
+      width: 25vw;
+      line-height: 100vh;
+    }
+
+    .air-hold-button {
+      &--hold {
+        background-color: #009688;
+      }
+    }
+
+    .air-tap-button {
+      &--tap {
+        background-color: #4caf50;
+      }
+      &--number {
+        background-color: #cddc39;
+      }
+      &--hero {
+        background-color: #2196f3;
+      }
+      &--back {
+        background-color: #ff5722;
+      }
+    }
+  }
+}

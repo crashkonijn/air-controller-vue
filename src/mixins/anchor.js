@@ -1,14 +1,17 @@
 export const anchor = {
     props: {
         anchor: {
-            required: true,
+            required: false,
             type: String,
-            default: 'center-center'
         },
     },
     computed: {
         anchorClasses() {
-            return 'anchor--' + this.anchor;
+            if (!this.anchor) {
+                return '';
+            }
+
+            return 'anchor anchor--' + this.anchor;
         }
     }
 };

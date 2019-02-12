@@ -5,10 +5,15 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "dev": "vue-cli-service build --mode development",
+    "watch": "vue-cli-service build --watch",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "lodash": "^4.17.11",
+    "victor": "^1.1.0",
     "vue": "^2.5.22",
+    "vue2-hammer": "^2.1.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

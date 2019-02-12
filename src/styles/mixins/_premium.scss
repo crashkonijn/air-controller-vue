@@ -1,0 +1,7 @@
+.premium-only {
+  &--disabled {
+    &.air-button {
+      opacity: 0.5;
+    }
+  }
+}
