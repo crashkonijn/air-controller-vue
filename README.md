@@ -11,6 +11,8 @@ npm run serve
 ```
 
 ### Compiles and minifies for production
+The files that are compiled to the /dist folder should be placed in the `\WebGLTemplates\AirConsole` folder in Unity.
+
 ```
 npm run build
 ```

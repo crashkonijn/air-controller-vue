@@ -17,7 +17,16 @@
         background-color: #4caf50;
       }
       &--number {
+        line-height: 33.33333vh;
         background-color: #cddc39;
+
+        &:nth-child(1) {
+          background-color: #a8b737;
+        }
+
+        &:nth-child(2) {
+          background-color: #dae93a;
+        }
       }
       &--hero {
         background-color: #2196f3;
@@ -25,6 +34,12 @@
       &--back {
         background-color: #ff5722;
       }
+    }
+
+    .number-parent {
+      width: 25vw;
+      height: 100vh;
+      float: left;
     }
   }
 }

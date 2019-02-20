@@ -21,7 +21,11 @@
             <air-page name="buttons">
                 <air-tap-button name="tap"></air-tap-button>
                 <air-hold-button name="hold"></air-hold-button>
-                <air-tap-button name="number" value="2"></air-tap-button>
+                <div class="number-parent">
+                    <air-tap-button name="number" value="1">Number: 1</air-tap-button>
+                    <air-tap-button name="number" value="2">Number: 2</air-tap-button>
+                    <air-tap-button name="number" value="3">Number: 3</air-tap-button>
+                </div>
                 <air-tap-button name="hero" premium-only></air-tap-button>
                 <air-tap-button name="back"></air-tap-button>
             </air-page>
