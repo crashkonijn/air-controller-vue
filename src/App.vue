@@ -68,7 +68,7 @@
     export default {
         name: 'app',
         components: {
-            AirProfileImage,
-            AirGyroscope, AirPan, AirSwipe, AirHoldButton, AirTapButton, AirPage, AirController},
+            AirProfileImage, AirGyroscope, AirPan, AirSwipe, AirHoldButton, AirTapButton, AirPage, AirController
+        },
     }
 </script>
