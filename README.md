@@ -1,5 +1,18 @@
 # air-controller
 
+## Todo Checklist
+- [X] Pages
+- [X] Button (tap)
+- [X] Button (hold)
+- [X] Pan
+- [X] Swipe
+- [X] Gyroscope
+- [X] Css anchor positioning helpers
+- [ ] Root classes
+- [ ] Send/Receive custom data
+- [ ] Make node package
+- [ ] Separate controller development/example from this package
+
 ## Project setup
 ```
 npm install
@@ -27,5 +40,8 @@ npm run test
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Build controller
+ 
+You can edit the `src/App.vue` to build your controller in. 
+
+(for now, the project you're working in and AirConsoleVue should be seperated in the future)
