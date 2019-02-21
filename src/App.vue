@@ -16,15 +16,16 @@
                 <air-tap-button id="pan" name="menu" value="2"></air-tap-button>
                 <air-tap-button id="motion" name="menu" value="3"></air-tap-button>
                 <air-tap-button id="profile" name="menu" value="6"></air-tap-button>
+                <!--<air-tap-button id="custom-data" name="menu" value="4"></air-tap-button>-->
                 <air-tap-button id="back" name="unclaim"></air-tap-button>
             </air-page>
             <air-page name="buttons">
                 <air-tap-button name="tap"></air-tap-button>
                 <air-hold-button name="hold"></air-hold-button>
                 <div class="number-parent">
-                    <air-tap-button name="number" value="1">Number: 1</air-tap-button>
-                    <air-tap-button name="number" value="2">Number: 2</air-tap-button>
-                    <air-tap-button name="number" value="3">Number: 3</air-tap-button>
+                    <air-tap-button name="number" value="1">1</air-tap-button>
+                    <air-tap-button name="number" value="2">2</air-tap-button>
+                    <air-tap-button name="number" value="3">3</air-tap-button>
                 </div>
                 <air-tap-button name="hero" premium-only></air-tap-button>
                 <air-tap-button name="back"></air-tap-button>
@@ -51,6 +52,9 @@
                 <air-profile-image name="profile" anchor="center-center"></air-profile-image>
                 <air-tap-button name="back"></air-tap-button>
             </air-page>
+            <air-page name="custom-data">
+                <custom-data-example></custom-data-example>
+            </air-page>
         </air-controller>
     </div>
 </template>
@@ -64,11 +68,20 @@
     import AirPan from "./components/AirPan";
     import AirGyroscope from "./components/AirGyroscope";
     import AirProfileImage from "./components/AirProfileImage";
+    import CustomDataExample from "./components/examples/CustomDataExample";
 
     export default {
         name: 'app',
         components: {
-            AirProfileImage, AirGyroscope, AirPan, AirSwipe, AirHoldButton, AirTapButton, AirPage, AirController
+            CustomDataExample,
+            AirProfileImage,
+            AirGyroscope,
+            AirPan,
+            AirSwipe,
+            AirHoldButton,
+            AirTapButton,
+            AirPage,
+            AirController
         },
     }
 </script>

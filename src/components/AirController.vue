@@ -1,5 +1,5 @@
 <template>
-    <div :class="classes">
+    <div :class="deviceClasses">
         <slot></slot>
     </div>
 </template>
@@ -32,10 +32,8 @@
                 'airConsole',
                 'deviceId',
                 'currentPage',
+                'deviceClasses',
             ]),
-            classes() {
-                return '';
-            }
         },
         methods: {
             initAirConsole() {

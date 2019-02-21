@@ -14,6 +14,7 @@ export default new Vuex.Store({
             enableHero: false,
             playerId: null,
             view: 'loading',
+            customData: {}
         },
         input: {},
         isPremium: false
@@ -33,6 +34,10 @@ export default new Vuex.Store({
                 state.deviceData.enableHero = deviceData.enablehero;
                 state.deviceData.playerId = deviceData.playerId;
                 state.deviceData.view = deviceData.view;
+
+                _.forOwn(deviceData.customdata, (value, key) => {
+                    Vue.set(state.deviceData.customData, key, value);
+                });
             }
         },
         setDeviceId(state, id) {
@@ -68,8 +73,20 @@ export default new Vuex.Store({
         currentPage(state) {
             return state.deviceData.view.toLowerCase();
         },
+        deviceClasses(state) {
+            return state.deviceData.class;
+        },
         isPremium(state) {
             return state.isPremium;
         },
+        getCustomData(state) {
+            return (key) => {
+                if (!_.has(state.deviceData.customData, key)) {
+                    Vue.set(state.deviceData.customData, key, null);
+                }
+
+                return state.deviceData.customData[key];
+            }
+        }
     }
 })
