@@ -7,11 +7,11 @@
 - [X] Pan
 - [X] Swipe
 - [X] Gyroscope
+- [X] Axis
+- [X] Joystick
 - [X] Css anchor positioning helpers
 - [X] Root classes
 - [X] Receive custom data
-- [ ] Send custom data
-- [ ] Different send channels
 - [ ] Make node package
 - [ ] Separate controller development/example from this package
 
@@ -47,3 +47,4 @@ npm run lint
 You can edit the `src/App.vue` to build your controller in. 
 
 (for now, the project you're working in and AirConsoleVue should be separated in the future)
+

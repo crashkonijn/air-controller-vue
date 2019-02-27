@@ -19,10 +19,8 @@
         },
         methods: {
             pan(e) {
-                let vector = new Victor(e.deltaX, e.deltaY);
+                let vector = new Victor(e.deltaX, e.deltaY * -1);
                 let length = 10 / this.$refs.area.clientWidth * vector.length();
-
-                console.log(e.type);
 
                 this.$store.commit('sendMessage', {
                     type: 'pan',

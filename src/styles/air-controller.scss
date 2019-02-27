@@ -6,10 +6,11 @@
 @import "mixins/premium";
 // Components
 @import "components/air-page";
-@import "components/air-tab-btn";
+@import "components/air-button";
 @import "components/air-swipe";
 @import "components/air-pan";
 @import "components/air-profile-image";
+@import "components/air-joystick";
 // Custom
 @import "custom/style";
 @import "pages/loading";
@@ -21,3 +22,4 @@
 @import "pages/pan";
 @import "pages/motion";
 @import "pages/full";
+@import "pages/axis";

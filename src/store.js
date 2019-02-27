@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import _ from 'lodash'
 import EventBus from './event-bus'
+import Victor from 'victor'
 
 Vue.use(Vuex);
 
@@ -17,6 +18,10 @@ export default new Vuex.Store({
             customData: {}
         },
         input: {},
+        /**
+         * { key: { _uid: value} }
+         */
+        axis: {},
         isPremium: false
     },
     mutations: {
@@ -33,11 +38,14 @@ export default new Vuex.Store({
                 state.deviceData.class = deviceData.class;
                 state.deviceData.enableHero = deviceData.enablehero;
                 state.deviceData.playerId = deviceData.playerId;
-                state.deviceData.view = deviceData.view;
 
                 _.forOwn(deviceData.customdata, (value, key) => {
                     Vue.set(state.deviceData.customData, key, value);
                 });
+
+                EventBus.$emit('onData', state.deviceData.customData);
+
+                this.commit('setPage', deviceData.view);
             }
         },
         setDeviceId(state, id) {
@@ -48,16 +56,36 @@ export default new Vuex.Store({
             delete payload.key;
 
             _.set(state.input, key, payload);
-            EventBus.$emit('sendMessage', state.input);
+            EventBus.$emit('sendMessage');
         },
         clearInput(state) {
             state.input = {};
+            state.axis = {};
         },
         setPage(state, view) {
-            state.deviceData.view = view;
+            if (state.deviceData.view !== view) {
+                state.deviceData.view = view;
+
+                EventBus.$emit('onShowPage', view);
+            }
         },
         setIsPremium(state, premium) {
             state.isPremium = premium;
+
+            EventBus.$emit('onBecamePremium', premium);
+        },
+        addAxis(state, object) {
+            _.set(state.axis, object.key + '.id' + object.id, object.value);
+            EventBus.$emit('sendMessage');
+        },
+        removeAxis(state, object) {
+            _.unset(state.axis, object.key + '.id' + object.id);
+
+            if (!_.get(state.axis, object.key, {}).length) {
+                _.set(state.axis, object.key, new Victor(0, 0));
+            }
+
+            EventBus.$emit('sendMessage');
         },
     },
     getters: {
@@ -87,6 +115,12 @@ export default new Vuex.Store({
 
                 return state.deviceData.customData[key];
             }
+        },
+        getInput(state) {
+            return state.input;
+        },
+        getAxis(state) {
+            return state.axis;
         }
     }
 })
