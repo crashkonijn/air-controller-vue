@@ -9,6 +9,7 @@
     import {base} from '../mixins/base'
     import {premium} from '../mixins/premium'
     import Victor from 'victor'
+    import _ from 'lodash'
 
     export default {
         name: 'AirAxis',

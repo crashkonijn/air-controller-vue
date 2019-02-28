@@ -1,50 +1,7 @@
-# air-controller
+# air-controller-vue
 
-## Todo Checklist
-- [X] Pages
-- [X] Button (tap)
-- [X] Button (hold)
-- [X] Pan
-- [X] Swipe
-- [X] Gyroscope
-- [X] Axis
-- [X] Joystick
-- [X] Css anchor positioning helpers
-- [X] Root classes
-- [X] Receive custom data
-- [ ] Make node package
-- [ ] Separate controller development/example from this package
+This package contains the source used to create a controller for [AirController](https://github.com/crashkonijn/AirController)
 
 ## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-The files that are compiled to the /dist folder should be placed in the `\WebGLTemplates\AirConsole` folder in Unity.
-
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Build controller
- 
-You can edit the `src/App.vue` to build your controller in. 
-
-(for now, the project you're working in and AirConsoleVue should be separated in the future)
-
+The easiest way is to clone the [example project](https://github.com/crashkonijn/air-controller-vue). This contains all the basic settings to get you started!
