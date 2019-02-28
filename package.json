@@ -2,8 +2,19 @@
   "name": "air-controller-vue",
   "description": "controller for AirController",
   "main": "src/index.js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "author": "Peter Klooster",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crashkonijn/air-controller-vue"
+  },
+  "keywords": [
+    "air-controller-vue",
+    "air-controller",
+    "AirController",
+    "AirConsole"
+  ],
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
