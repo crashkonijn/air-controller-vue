@@ -1,13 +1,13 @@
-import AirAxis from './AirAxis';
-import AirButton from './AirButton';
-import AirController from './AirController';
-import AirGyroscope from './AirGyroscope';
-import AirJoystick from './AirJoystick';
-import AirPage from './AirPage';
-import AirPan from './AirPan';
-import AirPosition from './AirPosition';
-import AirProfileImage from './AirProfileImage';
-import AirSwipe from './AirSwipe';
+import AirAxis from './Axis';
+import AirButton from './Button';
+import AirController from './Controller';
+import AirGyroscope from './Gyroscope';
+import AirJoystick from './Joystick';
+import AirPage from './Page';
+import AirPan from './Pan';
+import AirPosition from './Position';
+import AirProfileImage from './ProfileImage';
+import AirSwipe from './Swipe';
 
 export default {
     install(Vue) {
