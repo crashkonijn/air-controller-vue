@@ -17,7 +17,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name air src/build.js",
+    "build": "vue-cli-service build --target lib --name air-controller src/build.js --mode production",
     "dev": "vue-cli-service build --mode development",
     "watch": "vue-cli-service build --watch",
     "lint": "vue-cli-service lint"
