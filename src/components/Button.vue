@@ -15,6 +15,7 @@
         props: {
             mode: {
                 required: true,
+                type: String,
                 validator: (val) => ['down', 'hold', 'tap', 'double-tap'].includes(val)
             },
             value: {

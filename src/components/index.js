@@ -8,6 +8,7 @@ import AirPan from './Pan';
 import AirPosition from './Position';
 import AirProfileImage from './ProfileImage';
 import AirSwipe from './Swipe';
+import AirData from './Data';
 
 export default {
     install(Vue) {
@@ -21,5 +22,6 @@ export default {
         Vue.component('air-position', AirPosition);
         Vue.component('air-profile-image', AirProfileImage);
         Vue.component('air-swipe', AirSwipe);
+        Vue.component('air-data', AirData);
     }
 }

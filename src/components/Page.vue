@@ -13,9 +13,6 @@
     export default {
         name: 'AirPage',
         mixins: [base],
-        props: {
-
-        },
         computed: {
             ...mapGetters([
                 'currentPage'
