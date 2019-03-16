@@ -1,5 +1,5 @@
 <template>
-    <button :class="classes" v-hammer:press="press" v-hammer:tap="tap" v-hammer:pressup="up">
+    <button :class="classes" v-hammer:press="press" v-hammer:pressup="up" v-hammer:tap="tap">
         <slot>{{ id || name }}</slot>
     </button>
 </template>
@@ -23,10 +23,22 @@
                 default: null
             }
         },
+        data: () => ({
+            isPressed: false
+        }),
         computed: {
             classes() {
-                return [this.baseClasses, this.anchorClasses, this.premiumClasses].join(' ');
-            }
+                return [this.baseClasses, this.pressedClasses, this.anchorClasses, this.premiumClasses].join(' ');
+            },
+            pressedClasses() {
+                if (!this.isPressed) {
+                    return '';
+                }
+
+                let component = this.kebab_case(this.$options.name);
+
+                return component + '--pressed';
+            },
         },
         methods: {
             press() {
@@ -46,7 +58,9 @@
                     return;
                 }
 
-                this.send('up', 'hold-button');
+                setTimeout(() => {
+                    this.send('up', 'hold-button');
+                }, 20);
             },
             tap(e) {
                 if (e.taps === 1) {
@@ -75,6 +89,14 @@
                     return;
                 }
 
+                if ("down" === event) {
+                    this.isPressed = true;
+                }
+
+                if ("up" === event) {
+                    this.isPressed = false;
+                }
+
                 this.$store.commit('sendMessage', {
                     type: type,
                     event: event,
@@ -82,6 +104,6 @@
                     key: this.name
                 });
             }
-        }
+        },
     }
 </script>
