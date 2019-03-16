@@ -2,7 +2,7 @@
   "name": "air-controller-vue",
   "description": "controller for AirController",
   "main": "src/index.js",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "author": "Peter Klooster",
   "repository": {
     "type": "git",
