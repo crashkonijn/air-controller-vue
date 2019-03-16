@@ -26,7 +26,12 @@
                     nipple.on('move', this.move);
                     nipple.on('end', this.end);
                 });
-            })
+            });
+
+            this.$store.commit('setChannelSetting', {
+                name: this.name,
+                channel: 'continues'
+            });
         },
         data: () => ({
             joystick: null,
@@ -60,7 +65,7 @@
 
                 this.$store.commit('removeAxis', {
                     id: this._uid,
-                    key: this.name
+                    key: this.name,
                 });
             },
         }

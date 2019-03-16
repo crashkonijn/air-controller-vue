@@ -8,7 +8,26 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        airConsole: null,
+        airConsole: {
+            start() {
+                setInterval(() => {
+                    this.run();
+                }, 1000);
+            },
+            run() {
+                if (this.onDeviceMotion) {
+                    this.onDeviceMotion({
+                        x: Math.random(),
+                        y: Math.random(),
+                        z: Math.random(),
+                    });
+                }
+            },
+            message (target, data) {
+
+            },
+            onDeviceMotion: null
+        },
         deviceId: -1,
         deviceData: {
             class: '',
@@ -22,7 +41,11 @@ export default new Vuex.Store({
          * { key: { _uid: value} }
          */
         axis: {},
-        isPremium: false
+        lastSend: {},
+        isPremium: false,
+        channelSettings: {
+            motion: 'continues'
+        }
     },
     mutations: {
         showPage(state, page) {
@@ -58,7 +81,13 @@ export default new Vuex.Store({
             _.set(state.input, key, payload);
             EventBus.$emit('sendMessage');
         },
-        clearInput(state) {
+        clearInput(state, lastSend) {
+            _.forEach(lastSend, (value, key) => {
+                if (_.get(state.channelSettings, key) === 'continues') {
+                    _.set(state.lastSend, key, value);
+                }
+            });
+
             state.input = {};
             state.axis = {};
         },
@@ -79,14 +108,13 @@ export default new Vuex.Store({
             EventBus.$emit('sendMessage');
         },
         removeAxis(state, object) {
-            _.unset(state.axis, object.key + '.id' + object.id);
-
-            if (!_.get(state.axis, object.key, {}).length) {
-                _.set(state.axis, object.key, new Victor(0, 0));
-            }
+            _.set(state.axis, object.key + '.id' + object.id, new Victor(0, 0));
 
             EventBus.$emit('sendMessage');
         },
+        setChannelSetting(state, payload) {
+            _.set(state.channelSettings, payload.name, payload.channel);
+        }
     },
     getters: {
         airConsole(state) {
@@ -121,6 +149,12 @@ export default new Vuex.Store({
         },
         getAxis(state) {
             return state.axis;
+        },
+        getLastSend(state) {
+            return state.lastSend;
+        },
+        getChannelSettings(state) {
+            return state.channelSettings;
         }
     }
 })

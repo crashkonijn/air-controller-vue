@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export default {
     install(Vue) {
         Vue.prototype.camel_case = function (string) {

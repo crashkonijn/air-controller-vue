@@ -10,7 +10,7 @@
     export default {
         name: 'AirGyroscope',
         mounted() {
-            this.airConsole.onDeviceMotion = this.onDeviceMotion
+            this.airConsole.onDeviceMotion = this.onDeviceMotion;
         },
         beforeDestroy() {
             this.airConsole.onDeviceMotion = null;
