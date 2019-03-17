@@ -24,7 +24,7 @@ export default new Vuex.Store({
                 }
             },
             message (target, data) {
-
+                console.log(data);
             },
             onDeviceMotion: null
         },

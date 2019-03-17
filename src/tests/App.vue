@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <air-controller page="axis">
+        <air-controller page="joystick">
             <air-page name="loading">
                 <h1>Loading..</h1>
             </air-page>
@@ -72,8 +72,8 @@
                 <air-button mode="down" name="back"></air-button>
             </air-page>
             <air-page name="joystick">
-                <air-joystick name="move"></air-joystick>
-                <air-button mode="down" name="back"></air-button>
+                <air-dragstick name="move"></air-dragstick>
+                <!--<air-button mode="down" name="back"></air-button>-->
             </air-page>
         </air-controller>
     </div>

@@ -2,6 +2,7 @@ import AirAxis from './Axis';
 import AirButton from './Button';
 import AirController from './Controller';
 import AirGyroscope from './Gyroscope';
+import Dragstick from './Dragstick';
 import AirJoystick from './Joystick';
 import AirPage from './Page';
 import AirPan from './Pan';
@@ -16,6 +17,7 @@ export default {
         Vue.component('air-button', AirButton);
         Vue.component('air-controller', AirController);
         Vue.component('air-gyroscope', AirGyroscope);
+        Vue.component('air-dragstick', Dragstick);
         Vue.component('air-joystick', AirJoystick);
         Vue.component('air-page', AirPage);
         Vue.component('air-pan', AirPan);
