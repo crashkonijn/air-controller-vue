@@ -19,7 +19,7 @@
     "serve": "vue-cli-service serve src/test.js",
     "build": "vue-cli-service build --target lib --name air-controller src/build.js --mode production",
     "dev": "vue-cli-service build --mode development",
-    "watch": "vue-cli-service build --watch",
+    "watch": "vue-cli-service build --target lib --name air-controller src/build.js --mode production --watch",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

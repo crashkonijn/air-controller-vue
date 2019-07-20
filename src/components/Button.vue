@@ -41,50 +41,50 @@
             },
         },
         methods: {
-            press() {
+            press(e) {
                 if (this.mode !== 'down') {
                     if (this.mode !== 'hold') {
                         return;
                     }
 
-                    this.send('down', 'hold-button');
+                    this.send('down', 'hold-button', e);
                     return;
                 }
 
-                this.send('down', 'tap-button');
+                this.send('down', 'tap-button', e);
             },
-            up() {
+            up(e) {
                 if (this.mode !== 'hold') {
                     return;
                 }
 
                 setTimeout(() => {
-                    this.send('up', 'hold-button');
+                    this.send('up', 'hold-button', e);
                 }, 20);
             },
             tap(e) {
                 if (e.taps === 1) {
-                    this.singleTap();
+                    this.singleTap(e);
                 }
                 if (e.taps === 2) {
-                    this.doubleTap();
+                    this.doubleTap(e);
                 }
             },
-            singleTap() {
+            singleTap(e) {
                 if (this.mode !== 'tap') {
                     return;
                 }
 
-                this.send('down', 'tap-button');
+                this.send('down', 'tap-button', e);
             },
-            doubleTap() {
+            doubleTap(e) {
                 if (this.mode !== 'double-tap') {
                     return;
                 }
 
-                this.send('down', 'tap-button');
+                this.send('down', 'tap-button', e);
             },
-            send(event, type) {
+            send(event, type, e) {
                 if (this.getPremium()) {
                     return;
                 }
@@ -101,7 +101,8 @@
                     type: type,
                     event: event,
                     value: this.value,
-                    key: this.name
+                    key: this.name,
+                    position: e.center
                 });
             }
         },

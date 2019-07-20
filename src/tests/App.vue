@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <air-controller page="joystick">
+        <air-controller page="buttons">
             <air-page name="loading">
                 <h1>Loading..</h1>
             </air-page>

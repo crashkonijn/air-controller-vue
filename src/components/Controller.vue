@@ -51,11 +51,19 @@
                 airConsole.onReady = this.onReady;
                 airConsole.onDeviceStateChange = this.onDeviceStateChange;
                 airConsole.onPremium = this.onPremium;
+                airConsole.onMessage = this.onMessage;
 
                 this.$store.commit('setAirConsole', airConsole);
             },
             onReady() {
                 this.$store.commit('setDeviceId', this.airConsole.getDeviceId());
+
+                this.airConsole.message(0, {
+                    init: {
+                        height: window.innerHeight,
+                        width: window.innerWidth
+                    }
+                });
             },
             onDeviceStateChange(deviceId, data)
             {
@@ -64,6 +72,13 @@
             },
             onPremium() {
                 this.$store.commit('setIsPremium', true);
+            },
+            onMessage(deviceId, data) {
+                data = JSON.parse(data);
+
+                if (_.has(data, 'vibrate')) {
+                    this.airConsole.vibrate(_.get(data, 'vibrate'));
+                }
             }
         }
     }

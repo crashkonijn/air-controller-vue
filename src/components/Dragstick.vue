@@ -48,7 +48,7 @@
                 this.dragPosition = this.getVictor(e);
                 this.updateJoystickPosition();
 
-                this.dir = this.dragPosition.clone().subtract(this.joystickPosition).normalize();
+                this.dir = this.dragPosition.clone().subtract(this.joystickPosition).divideScalar(50).multiplyScalarY(-1);
 
                 this.$store.commit('addAxis', {
                     id: this._uid,
